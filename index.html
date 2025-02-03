@@ -581,9 +581,6 @@ footer a:hover {
         <!-- RSS Feed Section -->
 <div id="rss-feed" class="rss-feed-container"></div>
 
-<!-- Infinite Scroll Loader -->
-<div class="loader">Loading more articles...</div>
-
 <script>
     let rssFeeds = [
         "https://moxie.foxnews.com/google-publisher/latest.xml",
@@ -624,13 +621,13 @@ footer a:hover {
     }
 
     // Interleave Fox News and NYT Automobiles articles
-    let interleavedArticles = [];
-    let maxLength = Math.max(allArticles[0]?.length || 0, allArticles[1]?.length || 0);
+let interleavedArticles = [];
+let maxLength = Math.min(44, Math.max(allArticles[0]?.length || 0, allArticles[1]?.length || 0));
 
-    for (let i = 0; i < maxLength; i++) {
-        if (allArticles[0][i]) interleavedArticles.push(allArticles[0][i]); // Fox News
-        if (allArticles[1][i]) interleavedArticles.push(allArticles[1][i]); // NYT Automobiles
-    }
+    for (let i = 0; i < maxLength && interleavedArticles.length < 44; i++) {
+    if (allArticles[0][i] && interleavedArticles.length < 44) interleavedArticles.push(allArticles[0][i]);
+    if (allArticles[1][i] && interleavedArticles.length < 44) interleavedArticles.push(allArticles[1][i]);
+}
 
     console.log("Interleaved Articles:", interleavedArticles);
     appendArticles(interleavedArticles);
@@ -677,13 +674,6 @@ footer a:hover {
         fetchAllRSS();
     });
 
-    // Infinite Scroll
-    window.addEventListener("scroll", () => {
-        if (!loading && window.innerHeight + window.scrollY >= document.body.offsetHeight - 800) {
-            loading = true;
-            fetchAllRSS().then(() => loading = false);
-        }
-    });
 </script>
         
     <script>
