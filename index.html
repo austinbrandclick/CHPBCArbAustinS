@@ -346,6 +346,16 @@ footer a:hover {
         box-sizing: border-box;
     }
 
+    /* Hide "Trending Searches" title on mobile */
+    .trending-searches h2 {
+        display: none;
+    }
+
+    /* Hide "Inspired by your shopping interests" title and shopping icon on mobile */
+    .product-row > div:first-child {
+        display: none;
+    }
+
     /* Fix shortcut icons to have more rows */
     .shortcut-container {
         flex-wrap: wrap;
@@ -378,13 +388,6 @@ footer a:hover {
         align-items: center;
     }
 
-    .trending-searches h2 {
-        white-space: nowrap; /* Keeps title on one line */
-        font-size: 14px; /* Reduced font size */
-        text-align: center;
-        margin-bottom: 5px;
-    }
-
     .trending-searches div {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
@@ -404,22 +407,14 @@ footer a:hover {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 10px;
-        margin-top: 30px; /* Extra space below the title */
+        margin-top: 10px; /* Adjusted space after hiding title */
     }
 
     .product {
         width: 100%;
     }
 
-    /* Fix spacing issue between the title and the first row */
-    .product-row::before {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 15px; /* Adds extra space under the title */
-    }
-
-    /* Articles: 1 per row */
+    /* Ensure articles appear properly */
     .rss-feed-container {
         display: flex;
         flex-direction: column;
