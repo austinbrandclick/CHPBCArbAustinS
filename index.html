@@ -338,7 +338,35 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
-    /* Fix carousel container */
+    .content-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Hide "Trending Searches" title */
+    .trending-searches h2 {
+        display: none;
+    }
+
+    /* Hide "Inspired by your shopping interests" title and icon */
+    .product-row > div:first-child {
+        display: none !important;
+    }
+
+    /* Fix shortcut icons */
+    .shortcut-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .shortcut {
+        width: 22%;
+    }
+
+    /* Fix carousel for mobile */
     .carousel {
         width: 100%;
         height: 250px;
@@ -372,7 +400,7 @@ footer a:hover {
     }
 
     .carousel-item .overlay h2 {
-        font-size: 16px; /* Smaller title */
+        font-size: 16px; /* Adjust title size */
         margin: 0;
     }
 
@@ -406,6 +434,44 @@ footer a:hover {
 
     .carousel-dots button.active {
         background-color: white;
+    }
+
+    /* Prevent trending searches from overlapping products */
+    .trending-searches {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 20px; /* Extra space to prevent overlap */
+    }
+
+    .trending-searches div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        width: 100%;
+    }
+
+    .trending-searches button {
+        width: 90%;
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    /* Ensure products don't overlap and spacing is correct */
+    .product-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px;
+        margin-top: 30px !important; /* Ensures spacing */
+    }
+
+    .product {
+        width: 100%;
     }
 }
         
