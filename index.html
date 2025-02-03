@@ -360,52 +360,57 @@ footer a:hover {
     /* Make the carousel full-width on mobile */
     .carousel {
         width: 100%;
-        height: 220px; /* Adjusted height for mobile */
+        height: 200px; /* Adjusted height to match trending searches */
     }
 
     /* Trending Searches: Single-line title + 2 per row */
     .trending-searches {
         width: 100%;
         text-align: center;
-        padding: 10px; /* Adjust spacing */
+        height: 200px; /* Match the height of the article carousel */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .trending-searches h2 {
         white-space: nowrap; /* Keeps title on one line */
-        font-size: 16px; /* Reduced font size */
+        font-size: 16px; /* Reduce font size */
         text-align: center;
-        margin-bottom: 8px; /* Less space below title */
+        margin-bottom: 5px;
     }
 
     .trending-searches div {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
-        gap: 8px;
+        gap: 5px;
     }
 
     .trending-searches button {
         width: 100%;
-        padding: 8px; /* Slightly smaller buttons */
-        font-size: 14px; /* Slightly smaller font */
+        font-size: 14px; /* Adjust button text size */
+        padding: 8px; /* Slightly reduce button padding */
     }
 
-    /* Product Row: 2 per row */
+    /* Ensure spacing under "Inspired by your shopping interests" */
     .product-row {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 10px;
+        margin-top: 20px; /* Add space under the title */
     }
 
     .product {
         width: 100%;
     }
 
-    /* Adjust spacing below "Inspired by your shopping interests" title */
+    /* Ensure title spacing above products */
     .product-row::before {
         content: "";
         display: block;
-        height: 12px; /* Adds space between the title and first product row */
+        width: 100%;
+        height: 10px; /* Adds spacing under the title */
     }
 
     /* Articles: 1 per row */
