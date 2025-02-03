@@ -336,6 +336,61 @@ footer a:hover {
     text-decoration: underline;
     color: rgba(255, 255, 255, 0.8);
 }
+
+@media (max-width: 768px) {
+    /* Adjust shortcut icons layout */
+    .shortcut-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .shortcut {
+        width: 22%; /* Fits 4 per row */
+        max-width: 80px;
+    }
+
+    /* Make the carousel take full width */
+    .carousel-trending-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .carousel {
+        width: 100%;
+        height: 200px; /* Slightly smaller for better fit */
+    }
+
+    /* Ensure trending searches are full-width */
+    .trending-searches {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Display Amazon products in a two-per-row format */
+    .product-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .product {
+        width: 45%; /* Two per row */
+        max-width: 160px;
+    }
+
+    /* Make RSS articles take a full row */
+    .rss-feed-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rss-card {
+        width: 100%; /* Each article takes full width */
+    }
+}
         
     </style>
 
