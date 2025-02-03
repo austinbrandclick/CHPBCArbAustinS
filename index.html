@@ -366,13 +366,15 @@ footer a:hover {
         width: 22%;
     }
 
-    /* 🚀 Fix carousel for mobile */
+    /* 🔥 Fix carousel for mobile */
     .carousel {
         width: 100%;
-        height: 280px; /* Increased height slightly */
+        height: auto; /* Let it adjust dynamically */
         position: relative;
         overflow: hidden;
         border-radius: 15px;
+        display: flex;
+        flex-direction: column;
     }
 
     .carousel-inner {
@@ -383,16 +385,16 @@ footer a:hover {
 
     .carousel-item {
         min-width: 100%;
-        height: 280px; /* Adjusted height */
+        height: 100%; /* Ensure it fills the container */
         background-size: cover;
         background-position: center;
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* Ensures text stays at the bottom */
+        justify-content: flex-end;
     }
 
-    /* 🔥 Ensure overlay covers the bottom properly */
+    /* Ensure overlay covers the bottom properly */
     .carousel-item .overlay {
         position: absolute;
         bottom: 0;
@@ -400,6 +402,7 @@ footer a:hover {
         padding: 15px;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
         color: white;
+        min-height: 80px; /* Added height to prevent cut-off */
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -408,8 +411,9 @@ footer a:hover {
     .carousel-item .overlay h2 {
         font-size: 16px;
         margin: 0;
-        white-space: normal; /* Prevents text cut-off */
+        white-space: normal;
         word-wrap: break-word;
+        line-height: 1.3;
     }
 
     .carousel-item .overlay span {
@@ -444,15 +448,20 @@ footer a:hover {
     }
 
     /* 📏 Fix trending searches height & alignment */
+    .carousel-trending-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch; /* Ensures both sections stretch equally */
+    }
+
     .trending-searches {
         width: 100%;
-        height: auto;
         text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px; /* Extra space to prevent overlap */
+        margin-bottom: 20px;
     }
 
     .trending-searches div {
@@ -474,7 +483,7 @@ footer a:hover {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 15px;
-        margin-top: 30px !important; /* Ensures spacing */
+        margin-top: 30px !important;
     }
 
     .product {
