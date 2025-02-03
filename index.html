@@ -367,58 +367,65 @@ footer a:hover {
         width: 22%;
     }
 
-    /* Make the carousel full-width and match trending searches height */
+    /* Fix carousel size and keep dots inside */
     .carousel {
         width: 100%;
-        height: 250px; /* Adjusted to match trending searches */
+        height: 250px;
+        position: relative;
     }
 
     .carousel-item {
-        height: 250px; /* Ensures images fit correctly */
+        height: 250px;
     }
 
-    /* Trending Searches: Make it the same height as the article carousel */
+    .carousel-dots {
+        position: absolute;
+        bottom: 10px; /* Keeps dots inside the carousel */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        background-color: rgba(15, 14, 13, 0.8);
+        padding: 5px 15px;
+        border-radius: 25px;
+    }
+
+    /* Prevent trending searches from overlapping products */
     .trending-searches {
         width: 100%;
         text-align: center;
         height: 250px; /* Matches article carousel */
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
+        margin-bottom: 10px; /* Ensures space between trending searches and products */
     }
 
     .trending-searches div {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
+        grid-template-columns: repeat(2, 1fr);
         gap: 5px;
         width: 100%;
     }
 
     .trending-searches button {
         width: 90%;
-        font-size: 12px; /* Adjust button text size */
-        padding: 6px; /* Adjust button padding */
+        font-size: 12px;
+        padding: 6px;
     }
 
-    /* Fix "Inspired by your shopping interests" spacing */
+    /* Fix spacing in the products section */
     .product-row {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 10px;
-        margin-top: 10px; /* Adjusted space after hiding title */
+        margin-top: 20px; /* Ensure proper spacing below trending searches */
     }
 
     .product {
         width: 100%;
-    }
-
-    /* Ensure articles appear properly */
-    .rss-feed-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
     }
 }
         
