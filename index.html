@@ -357,25 +357,30 @@ footer a:hover {
         width: 22%;
     }
 
-    /* Make the carousel full-width on mobile */
+    /* Make the carousel full-width and match trending searches height */
     .carousel {
         width: 100%;
-        height: 200px; /* Adjusted height to match trending searches */
+        height: 250px; /* Adjusted to match trending searches */
     }
 
-    /* Trending Searches: Single-line title + 2 per row */
+    .carousel-item {
+        height: 250px; /* Ensures images fit correctly */
+    }
+
+    /* Trending Searches: Make it the same height as the article carousel */
     .trending-searches {
         width: 100%;
         text-align: center;
-        height: 200px; /* Match the height of the article carousel */
+        height: 250px; /* Matches article carousel */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: center;
     }
 
     .trending-searches h2 {
         white-space: nowrap; /* Keeps title on one line */
-        font-size: 16px; /* Reduce font size */
+        font-size: 14px; /* Reduced font size */
         text-align: center;
         margin-bottom: 5px;
     }
@@ -384,33 +389,34 @@ footer a:hover {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
         gap: 5px;
+        width: 100%;
     }
 
     .trending-searches button {
-        width: 100%;
-        font-size: 14px; /* Adjust button text size */
-        padding: 8px; /* Slightly reduce button padding */
+        width: 90%;
+        font-size: 12px; /* Adjust button text size */
+        padding: 6px; /* Adjust button padding */
     }
 
-    /* Ensure spacing under "Inspired by your shopping interests" */
+    /* Fix "Inspired by your shopping interests" spacing */
     .product-row {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         padding: 10px;
-        margin-top: 20px; /* Add space under the title */
+        margin-top: 30px; /* Extra space below the title */
     }
 
     .product {
         width: 100%;
     }
 
-    /* Ensure title spacing above products */
+    /* Fix spacing issue between the title and the first row */
     .product-row::before {
         content: "";
         display: block;
         width: 100%;
-        height: 10px; /* Adds spacing under the title */
+        height: 15px; /* Adds extra space under the title */
     }
 
     /* Articles: 1 per row */
