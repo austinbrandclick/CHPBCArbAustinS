@@ -337,58 +337,71 @@ footer a:hover {
     color: rgba(255, 255, 255, 0.8);
 }
 
+/* MOBILE RESPONSIVE FIXES */
 @media (max-width: 768px) {
-    /* Adjust shortcut icons layout */
+    .content-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* Fix shortcut icons to have more rows */
     .shortcut-container {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
-        padding: 10px;
     }
 
     .shortcut {
-        width: 22%; /* Fits 4 per row */
-        max-width: 80px;
+        width: 22%;
     }
 
-    /* Make the carousel take full width */
-    .carousel-trending-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
+    /* Make the carousel full-width on mobile */
     .carousel {
         width: 100%;
-        height: 200px; /* Slightly smaller for better fit */
+        height: 220px; /* Adjusted height for mobile */
     }
 
-    /* Ensure trending searches are full-width */
+    /* Trending Searches: Single-line title + 2 per row */
     .trending-searches {
         width: 100%;
-        margin-top: 10px;
+        text-align: center;
     }
 
-    /* Display Amazon products in a two-per-row format */
-    .product-row {
-        flex-wrap: wrap;
-        justify-content: center;
+    .trending-searches h2 {
+        white-space: nowrap; /* Keeps title on one line */
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .trending-searches div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 buttons per row */
         gap: 10px;
+    }
+
+    .trending-searches button {
+        width: 100%;
+    }
+
+    /* Product Row: 2 per row */
+    .product-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
     }
 
     .product {
-        width: 45%; /* Two per row */
-        max-width: 160px;
+        width: 100%;
     }
 
-    /* Make RSS articles take a full row */
+    /* Articles: 1 per row */
     .rss-feed-container {
         display: flex;
         flex-direction: column;
-    }
-
-    .rss-card {
-        width: 100%; /* Each article takes full width */
+        gap: 15px;
     }
 }
         
