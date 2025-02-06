@@ -578,12 +578,7 @@ footer a:hover {
                 </div>
                 <button class="carousel-button left">&lt;</button>
                 <button class="carousel-button right">&gt;</button>
-                <div class="carousel-dots">
-                    <button class="active"></button>
-                    <button></button>
-                    <button></button>
-                    <button></button>
-                </div>
+                <div class="carousel-dots"></div>
             </div>
         
             <!-- Trending Searches Section -->
@@ -735,50 +730,62 @@ function appendArticles(articles) {
 </script>
         
     <script>
-        let currentIndex = 0;
-        const items = document.querySelectorAll('.carousel-item');
-        const dots = document.querySelectorAll('.carousel-dots button');
-        let autoScrollTimer;
-
-        function updateCarousel(index) {
-            const offset = index * -100;
-            document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-        }
-
-        function resetAutoScroll() {
-            clearInterval(autoScrollTimer);
-            autoScrollTimer = setInterval(autoScroll, 5000);
-        }
-
-        function autoScroll() {
-            currentIndex = (currentIndex + 1) % items.length;
-            updateCarousel(currentIndex);
-        }
-
-        document.querySelector('.carousel-button.left').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            updateCarousel(currentIndex);
+        document.addEventListener("DOMContentLoaded", function () {
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    
+    // ✅ Clear existing dots and generate new ones dynamically
+    dotsContainer.innerHTML = "";  
+    items.forEach((_, index) => {
+        const dot = document.createElement("button");
+        if (index === 0) dot.classList.add("active");  // First dot is active
+        dot.addEventListener("click", () => {
+            updateCarousel(index);
             resetAutoScroll();
         });
+        dotsContainer.appendChild(dot);
+    });
 
-        document.querySelector('.carousel-button.right').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % items.length;
-            updateCarousel(currentIndex);
-            resetAutoScroll();
-        });
+    const dots = document.querySelectorAll('.carousel-dots button');
+    let autoScrollTimer;
 
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateCarousel(index);
-                resetAutoScroll();
-            });
-        });
+    function updateCarousel(index) {
+        const offset = index * -100;
+        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+        
+        // ✅ Prevent undefined errors by checking if the dot exists
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[index]) {
+            dots[index].classList.add('active'); 
+        }
+    }
 
-        // Initialize auto-scroll with a 5-second interval
+    function resetAutoScroll() {
+        clearInterval(autoScrollTimer);
         autoScrollTimer = setInterval(autoScroll, 5000);
+    }
+
+    function autoScroll() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel(currentIndex);
+    }
+
+    document.querySelector('.carousel-button.left').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel(currentIndex);
+        resetAutoScroll();
+    });
+
+    document.querySelector('.carousel-button.right').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel(currentIndex);
+        resetAutoScroll();
+    });
+
+    // ✅ Start the auto-scroll timer
+    autoScrollTimer = setInterval(autoScroll, 5000);
+});
     </script>
 
 <script>
